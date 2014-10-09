@@ -21,3 +21,7 @@ data/dashboard/
 # Ignore emacs .. erm its backup files..
 *~
 *.swp
+
+# local Docker image related files
+/.dockerid
+/.gem-docker
