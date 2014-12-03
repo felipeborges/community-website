@@ -224,6 +224,29 @@ body.admin-index
         opacity: 0.5
         vertical-align: middle
 
+  .git-status
+    @extend .fa
+
+  .status-new
+    background: rgba(green, 0.125)
+    .git-status
+      //@extend .fa-eye
+      //@extend .fa-star
+      color: green
+      @extend .fa-certificate
+
+  .status-modified
+    background: rgba(orange, 0.125)
+    .git-status
+      color: orange
+      @extend .fa-exchange
+      //@extend .fa-code-fork
+
+  .status-deleted
+    background: red
+    .git-status
+      @extend .fa-crosshairs
+
 
 body.admin-blog-edit
 

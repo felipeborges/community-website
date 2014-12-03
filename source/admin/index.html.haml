@@ -84,11 +84,14 @@ hide_footer: true
     - post_date = article.date.strftime("%F")
     - post_slug = article.slug
 
-    %tr.article{class: " #{article.published? ? 'published' : 'draft'}"}
+    - filename_slug = article.path.scan(/\/([^\/]*).html/).first.first
+
+    %tr.article{class: " #{article.published? ? 'published' : 'draft'}", id: filename_slug}
 
       %td.published
         - unless article.published?
           %i.draft-icon{title: "Draft"}
+        %i.git-status
 
       %td
         .title
@@ -125,6 +128,7 @@ hide_footer: true
     $clearer = $('#filterclear')
     $author = $('#author-select')
     delayTimer = null
+    gitTimer = null
     createAjax = null
 
 
@@ -160,7 +164,8 @@ hide_footer: true
 
     updateList = ->
       $.get '/admin/?filter=' + $filter.val(), (data) ->
-        $('#articlelist').html $('#articlelist', data)
+        gitStatus -> $('#articlelist').html $('#articlelist', data).children()
+
 
     activateFilter = (e) ->
       do updateClearer
@@ -186,6 +191,25 @@ hide_footer: true
 
     setAuthor = (nick) ->
       $author.val(nick)
+
+
+    @gitStatus = (callback) ->
+      $.getJSON '/admin/api/git/status/', (data) ->
+        if callback && typeof callback == "function"
+          do callback
+
+        $fragment = $('#articlelist')
+
+        # Remove status icons
+        statuses = '.status-new,.status-deleted,.status-modified'
+        $(statuses, $fragment)
+          .removeClass(statuses.replace(/\./g, '').replace(',', ' '))
+          .find('.git-status[title]').removeAttr('title')
+
+        $.each data.blog, (key, value)->
+          $(value.join(','), $fragment)
+            .addClass('status-' + key)
+            .find('.git-status').attr('title', key.replace(/\b\w/g, (l)-> do l.toUpperCase))
 
 
     # Bindings
@@ -214,6 +238,7 @@ hide_footer: true
 
       do updateClearer
       do $filter.focus
+      do gitStatus
 
       setAuthor defaultAuthor() if defaultAuthor()
 
