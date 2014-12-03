@@ -130,6 +130,7 @@ hide_footer: true
     delayTimer = null
     gitTimer = null
     createAjax = null
+    gitAjax = null
 
 
     # Functions
@@ -194,7 +195,9 @@ hide_footer: true
 
 
     @gitStatus = (callback) ->
-      $.getJSON '/admin/api/git/status/', (data) ->
+      gitAjax.stopAjax() if gitAjax
+
+      gitAjax = $.getJSON '/admin/api/git/status/', (data) ->
         if callback && typeof callback == "function"
           do callback
 
@@ -210,6 +213,15 @@ hide_footer: true
           $(value.join(','), $fragment)
             .addClass('status-' + key)
             .find('.git-status').attr('title', key.replace(/\b\w/g, (l)-> do l.toUpperCase))
+
+    @gitFetch = ->
+      $.getJSON '/admin/api/git/fetch/', (data) ->
+        do gitStatus
+
+
+    @gitCompare = ->
+      $.getJSON '/admin/api/git/compare/', (data) ->
+        do gitStatus
 
 
     # Bindings

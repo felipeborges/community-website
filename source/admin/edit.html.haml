@@ -34,11 +34,12 @@ page_classes: admin admin-blog admin-blog-edit
     .center-text
       -#= article_filename
       #saving.hidden
-        Saving..
+        Saving&hellip;
 
   #edit-ui.row
     .editor.col-sm-6
       %form.editor.form-horizontal#blog-data{action: "/admin/api/update/", method: "post", "data-slug" => article_slug, "data-date" => article.date.to_date}
+        %input#hidden-explicit{type: "hidden", value: false, name: "explicit"}
         %input#hidden-slug{type: "hidden", value: article_slug, name: "slug"}
         %input#hidden-path{type: "hidden", value: article_path, name: "path"}
         %input#hidden-filename{type: "hidden", value: article_filename, name: "filename"}
@@ -203,9 +204,14 @@ page_classes: admin admin-blog admin-blog-edit
     $content.addClass('disabled')
     editor.codemirror.state.disableInput = true
 
-  saveForm = ->
+  saveForm = (explicit = false) ->
+    # Mirror explicit state in form
+    $('#hidden-explicit').val(explicit)
+
     do stopAjax
+
     $('#saving').removeClass('hidden').fadeIn(50)
+
     currentSave = $.post $form.attr('action'), $form.serialize(), (data)->
       $('#saving').fadeOut(1000)
 
