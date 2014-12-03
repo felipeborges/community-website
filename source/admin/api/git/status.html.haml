@@ -1,0 +1,47 @@
+---
+layout: false
+---
+
+:ruby
+  def match_filetype stats, match
+    match = Regexp.quote(match) if match.class == String
+    stats.scan(/^#{match}\s+(.*)$/).flatten
+  end
+
+  def match_path files, path, opt = nil
+    results = files.nil? ? [] : files.select {|f| f.match path}
+
+    if opt == :slug
+      results = results.map do |item|
+        '#' + item.scan(/\/([^\/]*).html/).first.first
+      end
+    end
+
+    results
+  end
+
+
+  def status
+    stats = `git status --porcelain`
+
+    files = {
+      new: match_filetype(stats, 'A'),
+      deleted: match_filetype(stats, 'D'),
+      modified: match_filetype(stats, /M| M/),
+      untracked: match_filetype(stats, '??'),
+    }
+
+    files[:missing_images] = match_path(files[:untracked], /^source\/images/)
+
+    blog_path = /^source\/blog/
+
+    files[:blog] = {
+      new: match_path(files[:new], blog_path, :slug),
+      deleted: match_path(files[:deleted], blog_path, :slug),
+      modified: match_path(files[:modified], blog_path, :slug)
+    }
+
+    files.to_json
+  end
+
+= status.gsub(/\[/, "\n\\0").gsub(/,/, "\\0\n")
