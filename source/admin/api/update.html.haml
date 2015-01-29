@@ -30,6 +30,8 @@ layout: false
     yamlized = meta.to_yaml.gsub(/^----$/, '---').gsub(/^date: '(.*)'$/, 'date: \1')
     content = content.gsub(/\r\n/, "\n")
 
+    status = `git status --porcelain "#{path}/#{new_filename}"`
+
     action = case status
              when /M/
                "modified"
@@ -56,8 +58,6 @@ layout: false
     end
   end
 
-  status = `git status --porcelain "#{path}/#{new_filename}"`
   debug = action#status
-
 
 = {date: date, slug: slug, debug: debug}.to_json if meta
