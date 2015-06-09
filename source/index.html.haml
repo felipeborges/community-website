@@ -43,39 +43,8 @@ pageable: false
     %section.upcoming-events
 
       %h2 Upcoming
-
-      %dl.upcoming-list
-        - max_events = 10
-        - event_count = 0
-
-
-        - current_events.sort_by {|k, v| k}.each do |year_label, year|
-          - year.each do |conf_label, conf|
-            - if conf.type && conf.type == 'series'
-              - if conf.talks
-                - conf.talks.each do |talk|
-                  - unless event_count > max_events || Date.parse(talk.start) < Time.now.to_date
-                    - event_count += 1
-
-                    %dd.upcoming-date
-                      %span.day= Date.parse(talk.start).strftime('%-d')
-                      %span.month= Date.parse(talk.start).strftime('%b')
-                    %dt.upcoming-event
-                      %a{:href => "/events/##{conf_label.parameterize}--#{talk.title.parameterize}"}
-                        = talk.title
-
-            - elsif conf.start
-              - event_count += 1
-
-              - unless event_count > max_events
-                %dd.upcoming-date
-                  %span.day= conf.start.strftime('%-d')
-                  %span.month= conf.start.strftime('%b')
-                %dt.upcoming-event
-                  %a{:href => "/events/##{conf_label.parameterize}"}
-                    = conf.name
-
-        .more=link_to "View all current events&hellip;", "/events/"
+      = partial 'upcoming'
+      .more=link_to "View all current events&hellip;", "/events/"
 
 
     %section.participation
