@@ -31,6 +31,9 @@ footer_links:
   About Red Hat: http://www.redhat.com/about/
 
 
+# Regular expression filter for events
+# events_filter: KEYWORD_HERE
+
 blog_disclaimer: |
   This article originally appeared on
   [community.redhat.com](http://community.redhat.com/).
