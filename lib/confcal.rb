@@ -128,6 +128,18 @@ class ConfCal < Middleman::Extension
       current_events events, date_start, date_end
     end
 
+    # Return conferences that match a regular expression filter
+    def confs_match(filter, events = current_events)
+      return events unless filter
+
+      filter = /#{filter}/i if filter.class == String
+
+      events.each_with_object({}) do |(year, confs), h|
+        h[year] = confs.select do |label, conf|
+          label.match(filter) || conf.to_yaml.match(filter)
+        end
+      end
+    end
   end
 end
 
