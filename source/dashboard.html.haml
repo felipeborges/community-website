@@ -11,11 +11,12 @@
     scaleShowGridLines: false,
     tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %> <%= datasetLabel %>",
     multiTooltipTemplate: "<%= value %> <%= datasetLabel %>",
-    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].fillColor%>\"><%if(datasets[i].label){%><%= sentence(datasets[i].label) %><%}%></li><%}%></ul>"
+    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].backgroundColor%>\"><%if(datasets[i].label){%><%= sentence(datasets[i].label) %><%}%></li><%}%></ul>"
   }
 
   # In CoffeeScript, this gets merged with the above options
   optionsLineSimple = {
+    scales: {xAxis: [{display: false}], yAxis: [{display: false}]},
     datasetFill: true,
     datasetStroke: false,
     datasetStrokeWidth: 2,
@@ -56,17 +57,19 @@
     {
       data: info,
       originalColor: sass("#{color}"),
-      fillColor: sass("rgba(mix(#{color}, #fff, 70), 0.25)"),
-      # Override the fillColor, since we've set things to not fill
+      backgroundColor: sass("rgba(mix(#{color}, #fff, 70), 0.25)"),
+      # Override the backgroundColor, since we've set things to not fill
       # and it'd be nice to pass the original color back to the legend
       # as this list is processed, and only a few things escape to the
       # legendTemplate
+      backgroundColor: sass("#{color}"),
       label: label,
-      pointColor: sass("mix(#{color}, #fff, 70)"),
-      pointHighlightFill: sass("mix(#{color}, #000, 100)"),
-      pointHighlightStroke: sass("mix(#{color}, #000, 100)"),
-      pointStrokeColor: "transparent",
+      pointBackgroundColor: sass("mix(#{color}, #fff, 70)"),
+      pointHoverBackgroundColor: sass("mix(#{color}, #000, 100)"),
+      pointHoverBorderColor: sass("mix(#{color}, #000, 100)"),
+      pointBorderColor: "transparent",
       strokeColor: sass("mix(#{color}, #fff, 40)"),
+      originalColor: sass("color")
     }
   end
 
@@ -107,14 +110,18 @@
     ###
     @chart = (name, type, data, opts = @optionsLine) ->
       ctx = $(name).get(0).getContext('2d')
-      result = new Chart(ctx)[type](data, opts)
+      result = new Chart(ctx, {
+        type:    type.toLowerCase(),
+        data:    data,
+        options: opts
+      })
 
       ###
       # Nuke labels from X
       ###
-      result.scale.xLabels = ['']
+      #result.scale.xLabels = ['']
       # Re-render with nuked labels
-      result.render(true)
+      #result.render(true)
 
       ###
       # Should a legend be made?
