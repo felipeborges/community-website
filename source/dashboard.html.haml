@@ -3,21 +3,41 @@
 
   optionsLine = {
     animation: false,
-    datasetFill: false,
-    pointDotRadius: 1.5,
-    pointDotStrokeWidth: 3,
-    pointHistDetectionRadius: 0,
-    scaleBeginAtZero: true,
-    scaleShowGridLines: false,
-    tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %> <%= datasetLabel %>",
-    multiTooltipTemplate: "<%= value %> <%= datasetLabel %>",
-    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].backgroundColor%>\"><%if(datasets[i].label){%><%= sentence(datasets[i].label) %><%}%></li><%}%></ul>"
+    title: {display: false},
+    legend: {position: 'bottom'},
+    scales: {xAxes: [{display: false}]},
+    fill: false,
   }
+
+  styleLine = {
+    #animation: false,
+    #fill: false,
+    #scales: {xAxis: [{display: false}], yAxis: [{display: false}]},
+    #pointDotRadius: 1.5,
+    #pointDotStrokeWidth: 3,
+    #pointHistDetectionRadius: 0,
+    #scaleBeginAtZero: true,
+    #scaleShowGridLines: false,
+    #tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %> <%= datasetLabel %>",
+    #multiTooltipTemplate: "<%= value %> <%= datasetLabel %>",
+    #legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li style=\"color:<%=datasets[i].backgroundColor%>\"><%if(datasets[i].label){%><%= sentence(datasets[i].label) %><%}%></li><%}%></ul>"
+  }
+
+  #optionsLine = { }
+  #styleLine = { }
 
   # In CoffeeScript, this gets merged with the above options
   optionsLineSimple = {
-    scales: {xAxis: [{display: false}], yAxis: [{display: false}]},
-    datasetFill: true,
+    legend: {display: false},
+    scales: {xAxes: [{display: false}], yAxes: [{display: false}]},
+    fill: true,
+  }
+
+  styleLineSimple = {
+    fill: true,
+    gridLines: {display: false},
+    scaleLabel: {display: false},
+    file: true,
     datasetStroke: false,
     datasetStrokeWidth: 2,
     legend: false,
@@ -53,8 +73,8 @@
   end
 
   # Process chart info for a line
-  def chartLine(label, color, info)
-    {
+  def chartLine(label, color, info, simple = false)
+    opt = {
       data: info,
       originalColor: sass("#{color}"),
       backgroundColor: sass("rgba(mix(#{color}, #fff, 70), 0.25)"),
@@ -68,9 +88,21 @@
       pointHoverBackgroundColor: sass("mix(#{color}, #000, 100)"),
       pointHoverBorderColor: sass("mix(#{color}, #000, 100)"),
       pointBorderColor: "transparent",
-      strokeColor: sass("mix(#{color}, #fff, 40)"),
-      originalColor: sass("color")
+      borderColor: sass("mix(#{color}, #fff, 40)"),
+      originalColor: sass("color"),
+      pointRadius: 1.5,
+      pointHitRadius: 6,
+      fill: false
     }
+
+    if simple
+      opt[:fill] = true
+      opt[:borderWidth] = 1
+      opt[:pointRadius] = 0
+      opt[:pointHitRadius] = 3
+    end
+
+    opt
   end
 
   # Process chart info for a pie piece
@@ -94,7 +126,12 @@
     # Typical options
     ###
     @optionsLine = #{optionsLine.to_json}
-    @optionsLineSimple = $.extend {}, optionsLine, #{optionsLineSimple.to_json}
+    @optionsLineSimple = $.extend true, {}, optionsLine, #{optionsLineSimple.to_json}
+    @styleLine = #{styleLine.to_json}
+    @styleLineSimple = $.extend true, {}, styleLine, #{styleLineSimple.to_json}
+
+    #Chart.defaults.scale.display = false
+    #Chart.defaults.global.elements.line.fill = false
 
     @sentence = (string) ->
       string.replace /^(.)/g, (letter) -> letter.toUpperCase()
@@ -108,8 +145,9 @@
     ###
     # Common chart creation code, to prevent duplication
     ###
-    @chart = (name, type, data, opts = @optionsLine) ->
+    @chart = (name, type, data, opts = @optionsLine, style = @styleLine) ->
       ctx = $(name).get(0).getContext('2d')
+
       result = new Chart(ctx, {
         type:    type.toLowerCase(),
         data:    data,
@@ -120,6 +158,7 @@
       # Nuke labels from X
       ###
       #result.scale.xLabels = ['']
+      #result.scales.x-axis-0.hidden = true
       # Re-render with nuked labels
       #result.render(true)
 
@@ -127,7 +166,7 @@
       # Should a legend be made?
       # Yes, if not explictly turned off and contains multiple datasets
       ###
-      makeLegend = opts.legend != false && data.datasets.length > 1
+      #makeLegend = opts.legend != false && data.datasets.length > 1
 
       ###
       # Figure out duration of time and make a string
@@ -135,7 +174,7 @@
       duration = ' (' + @getDuration(data.labels) + ')' if data.labels.length != 12
 
       $(name).before('<h4>' + data.heading + (duration ? '') + '</h4>') if data.heading
-      $(name).after(result.generateLegend()) if makeLegend
+      #$(name).after(result.generateLegend()) if makeLegend
 
       return chart
 
@@ -242,7 +281,7 @@
                     info = {
                       labels: lastMonths(d.date, months),
                       datasets: [
-                        chartLine('new authors', color[:extralightgreen], lastMonths(newauthors, months)),
+                        chartLine('new authors', color[:extralightgreen], lastMonths(newauthors, months), 'simple'),
                       ]
                     }.to_json
                   :coffee
