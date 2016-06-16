@@ -91,18 +91,20 @@
       borderColor: sass("mix(#{color}, #fff, 40)"),
       originalColor: sass("color"),
       pointRadius: 1.5,
-      pointHitRadius: 6,
+      pointHitRadius: 12,
       fill: false
     }
 
     if simple
-      opt[:fill] = true
-      opt[:borderWidth] = 1
-      opt[:pointRadius] = 0
-      opt[:pointHitRadius] = 3
+      opt.merge({
+        fill: true,
+        borderWidth: 1,
+        pointRadius: 0,
+        pointHitRadius: 0,
+      })
+    else
+      opt
     end
-
-    opt
   end
 
   # Process chart info for a pie piece
