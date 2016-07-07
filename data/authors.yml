@@ -189,6 +189,7 @@ mgoldboim:
 
 mikey:
   name: Mikey Ariel
+  twitter: ThatDocsLady
   gravatar: cc4eb61ea6ff5b734785c6fc6c4be305
   description: |
     Mikey Ariel is the community lead for the Open Virtualization (oVirt) project, based in Czech Republic. Prior to diving into the world of community gardening, Mikey spent the better part of 7 years working as a technical writer for enterprise software solutions, including Red Hat's JBoss Fuse and OpenStack Platform, as well as a sporadic scrum master and agile coach specializing in non-development teams.
@@ -243,6 +244,7 @@ ndevos:
 
 obarenboim:
   name: Oleg Barenboim
+  twitter: chessbyte
   gravatar: 6e45bc682b864af02e7181124eea5cab
   description: 'Follow Oleg Barenboin on Twitter at: @chessbyte.'
 
