@@ -46,7 +46,7 @@ class BlogHelpers < Middleman::Extension
       return unless (author['gravatar'] || author['email'])
 
       g_hash = author['gravatar'] || Digest::MD5.hexdigest(author['email'])
-      g_json = open("http://gravatar.com/#{g_hash}.json").read rescue nil
+      g_json = open("https://en.gravatar.com/#{g_hash}.json").read rescue nil
 
       @author_gravatar[nickname] = if author && g_json
         Oj.load g_json
