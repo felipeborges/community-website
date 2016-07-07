@@ -1,0 +1,53 @@
+:ruby
+  social_sites ||= {
+    twitter: 'https://twitter.com/',
+    googleplus: 'https://plus.google.com/+',
+    facebook: 'https://facebook.com/',
+  }
+
+  social_site_names ||= {
+    twitter: 'Twitter',
+    googleplus: 'Google+',
+    facebook: 'Facebook',
+  }
+
+- if true# author_card(author)
+  
+
+  #author-info.author-info
+
+    - if defined?(h1)
+      %h1
+        - unless defined?(no_about)
+          About
+        = author_name author
+
+    - else
+
+      %h2
+        - unless defined?(no_about)
+          About
+        = author_name author
+
+    - if author_photo(author)
+      .author-photo= author_photo(author)
+      - with_photo = true
+
+    .author-blurb{class: with_photo ? 'with-photo' : ''}
+      = author_card(author)
+
+      - if defined?(article)
+        .more-link
+          = author_link(author, "View all posts by #{author_name author} &raquo;")
+
+      .follow-on
+        - follow_link_shown = false
+        - %w(twitter googleplus facebook).each do |social_site|
+          - handle = data.authors[author] ? data.authors[author][social_site] : nil
+          - if handle
+            - unless follow_link_shown
+              = "Follow #{author_name(author).to_s.split(' ').first} on:"
+              - follow_link_shown = true
+            - social_link = "#{social_sites[social_site.to_sym]}#{handle}"
+            - social_name = social_site_names[social_site.to_sym]
+            = link_to social_name, social_link, {class: "icon-#{social_site}"}
