@@ -48,7 +48,7 @@ bkearney:
 
 bkp:
   name: Brian Proffitt
-  gravatar: 0a22509d0ede2cbc028f54db5b486dd1
+  #gravatar: 0a22509d0ede2cbc028f54db5b486dd1
   twitter: thetechscribe
   description: |
     Brian Proffitt is the Principal Community Analyst for
@@ -161,7 +161,7 @@ jzb:
   name: Joe Brockmeier
   twitter: jzb
   googleplus: JoeBrockmeier
-  gravatar: d43296a82bdabd69e1f4b3c460fdc909
+  #gravatar: d43296a82bdabd69e1f4b3c460fdc909
   description: |
     Joe Brockmeier works for Red Hat on the Open Source and Standards team.
     Passionate fan of Linux and open source, Vim, music, art, cats, and
