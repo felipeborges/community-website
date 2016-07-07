@@ -2,6 +2,7 @@
 
 acameron:
   name: Abby Cameron
+  gravatar: b174e2dae16a7a6ce2f32958d59ee2ac
   twitter: abbscam
   description: |
     Abby works as Events Support for the Global Events and Marketing team at Red Hat. As a recent graduate from NC State, you can always find her cheering on the Wolfpack. Follow her on Twitter at @abbscam.
@@ -12,6 +13,7 @@ admin:
 
 alarsson:
   name: Alexander Larsson
+  gravatar: b83f323ae35876a9a6df5515fddf83b2
   twitter: gnomealex
   description: |
     Alexander works in the Red Hat Desktop group and primarily works on Gtk+
@@ -21,6 +23,7 @@ alarsson:
 
 amye:
   name: Amye Scavarda
+  gravatar: eba267d280794c1edf40eec13c1eb03b
   twitter: amye
   description: |
     Amye is the Gluster Community Lead at Red Hat. Previously, she was a project manager working in Drupal to expand out the world one website and infrastructure build at a time. Follow her on Twitter
@@ -28,6 +31,7 @@ amye:
 
 bex:
   name: Brian Exelbierd
+  gravatar: a6e82f0c5eb3f313370e03e52d71c28a
   twitter: bexelbie
   description: |
     Brian (bex) Exelbierd is a Software Engineer for the Open Source and
@@ -38,11 +42,13 @@ bex:
 
 bkearney:
   name: Bryan Kearney
+  gravatar: 6e5591ff068c6a993b42c122cd68e4ea
   twitter: "@bryan_kearney"
   description: Bryan Kearney is a Sr. Engineering Manager at Red Hat.
 
 bkp:
   name: Brian Proffitt
+  gravatar: 0a22509d0ede2cbc028f54db5b486dd1
   twitter: thetechscribe
   description: |
     Brian Proffitt is the Principal Community Analyst for
@@ -52,10 +58,12 @@ bkp:
 
 dallen:
   name: Dan Allen
+  gravatar: 9fb32e9b786cba25b562de0807ca5163
 
 dbryant:
   name: Deb Bryant
   twitter: debbryant
+  gravatar: f6b8827160e35daf9a166bf45bbf89ed
   description: |
     Deb Bryant is senior director, Open Source and Standards at Red Hat,
     where she helps make upstream communities wildly successful. Deb serves
@@ -67,15 +75,18 @@ dbryant:
 
 dcaro:
   name: David Caro
+  gravatar: 65c2162e4b15ab899552d698eff518d5
   description: |
     David Caro is a DevelOpser, mix between ops and developer, working as continuous integration engineer at Red Hat for the RHEVM project. David is always looking for new and better ways to automate stuff, for now by writing mostly python and bash scripts, but never afraid to learn new languages (ruby, perl, java, groovy, clojure, rust... he's written hello worlds in all of them). David is also interested in software architecture, from SOA to microservices, it's always a good conversation starter.
 
 dcleal:
   name: Dominic Cleal
+  gravatar: 28cbd62b9edb6946b44807356de82d7b
 
 dneary:
   name: Dave Neary
   twitter: nearyd
+  gravatar: cae1a4eca8b71a21d58846508922e062
   description: |
     Dave Neary is part the Open Source and Standards team at Red Hat,
     driving adoption and community growth for projects including oVirt, RDO,
@@ -88,10 +99,12 @@ dneary:
 
 ewillson:
   name: Eco Willson
+  gravatar: 7b23b3a6816b314d99dff5c154c1cba9
 
 ghaff:
   name: Gordon Haff
   twitter: ghaff
+  gravatar: 5c93a00840c524f8eddf654c8e3836ab
   description: |
     Gordon Haff is senior cloud strategy marketing and evangelism manager
     at Red Hat. Prior to Red Hat, Gordon wrote hundreds of research notes and
@@ -108,14 +121,17 @@ glesage:
 
 glikins:
   name: Gina Likins
+  gravatar: bbf84443bf5fece1d27f22a42224d8f7
 
 jbrooks:
   name: Jason Brooks
   twitter: jasonbrooks
+  gravatar: 057bda02c955d35ec3b7eea8c3f9fac2
 
 jeder:
   name: Jeremy Eder
   twitter: jeremyeder
+  gravatar: ef9a8dd74813696f53a543ae7cb590b5
   description: |
     Jeremy Eder is a Principal Software Engineer, Network and Container Performance Lead at Red Hat. Jeremy specializes in measurement and analysis of kernel-related performance metrics, and using that analysis to guide performance-tuning of real-world infrastructure.
 
@@ -123,16 +139,19 @@ jeder:
 johnmark:
   name: John Mark Walker
   twitter: johnmark
+  gravatar: 2c66fbd5e2e2803116573a3ef997d953
   description: |
     John Mark Walker is the Open Source Ecosystems Manager on the Open
     Source and Standards team at Red Hat.
 
 jottinger:
   name: Joseph Ottinger
+  gravatar: 5030461417cd1d1cbb3e23579c4ca006
 
 jpichon:
   name: Julie Pichon
   twitter: jpichon_net
+  gravatar: 30aef547e1a4edc4e522d4e0c56f54e9
   description: |
     Julie Pichon is a Red Hat software engineer in Dublin, Ireland. She
     works on the OpenStack project. Follow Julie on Twitter at:
@@ -142,6 +161,7 @@ jzb:
   name: Joe Brockmeier
   twitter: jzb
   googleplus: JoeBrockmeier
+  gravatar: d43296a82bdabd69e1f4b3c460fdc909
   description: |
     Joe Brockmeier works for Red Hat on the Open Source and Standards team.
     Passionate fan of Linux and open source, Vim, music, art, cats, and
@@ -149,6 +169,7 @@ jzb:
 
 kchamarthy:
   name: Kashyap Chamarthy
+  gravatar: d835bb26da46d4391be3ef07dff11547
   description: |
     Kashyap Chamarthy works in the Red Hat cloud engineering group, focusing
     his contributions on interactions between OpenStack and its underlying
@@ -157,15 +178,18 @@ kchamarthy:
 lveyde:
   name: Lev Veyde
   description: Lev Veyde is a Software Engineer at Red Hat, based in Ra'anana, Israel.
+  gravatar: 4b03f62d3adc62b3b67fd1288cbd4ade
 
 mgoldboim:
   name: Moran Goldboim
+  gravatar: af9d2def9ef3e7d2df9e85236024f87c
   description: |
     Moran Goldboim is a Supervisor of Software Engineering at Red Hat, based
     in Ra'anana, Israel.
 
 mikey:
   name: Mikey Ariel
+  gravatar: cc4eb61ea6ff5b734785c6fc6c4be305
   description: |
     Mikey Ariel is the community lead for the Open Virtualization (oVirt) project, based in Czech Republic. Prior to diving into the world of community gardening, Mikey spent the better part of 7 years working as a technical writer for enterprise software solutions, including Red Hat's JBoss Fuse and OpenStack Platform, as well as a sporadic scrum master and agile coach specializing in non-development teams.
 
@@ -173,6 +197,7 @@ mikey:
 
 misc:
   name: Michael Scherer
+  gravatar: 028c5c1fff9b640e63018320b0a6e9cb
   description: |
     Michael Scherer works on the Open Source and Standards team, focusing on
     infrastructure issues. He lives in Paris, and he often speaks at events
@@ -180,6 +205,7 @@ misc:
 
 mlipchuk:
   name: Maor Lipchuk
+  gravatar: db6bc448daa2b0b1315b0184bbcc9b77
   description: |
     Maor Lipchuk has worked as a Senior Software Engineer in the oVirt
     project for the past four years. He is currently working in the Storage
@@ -188,6 +214,7 @@ mlipchuk:
 
 msivak:
   name: Martin Sivák
+  gravatar: d3e5014dcc318e6606b18a8f5fd90dae
   description: |
     Martin Sivák is a Senior Software Engineer for Red Hat Czech in Brno and
     has been working for Red Hat for the past seven years. He spent most of
@@ -197,6 +224,7 @@ msivak:
 ncoghlan:
   name: Nick Coghlan
   twitter: ncoghlan_dev
+  gravatar: 31dcffc1c493b18e971f5136aede06e3
   description: |
     Nick Coghlan is a deployment architect at Red Hat, providing guidance on
     how open source principles and practices are applied to the development,
@@ -209,16 +237,19 @@ ncoghlan:
 ndevos:
   name: Niels de Vos
   twitter: nixpanic
+  gravatar: 9a11fbe8748b4f3aa76663c6b3247134
   description: |
     Niels is a core-developer and maintainer for Gluster. He is employed by Red Hat and works together with other teams who provide professional support for Red Hat Gluster Storage. The main areas where Niels is active include network protocols, low-level/Operating Systems improvements and integration with other Open Source projects like NFS-Ganesha.Find him on Twitter at: @nixpanic
 
 obarenboim:
   name: Oleg Barenboim
+  gravatar: 6e45bc682b864af02e7181124eea5cab
   description: 'Follow Oleg Barenboin on Twitter at: @chessbyte.'
 
 plaimbock:
   name: Patrick Laimbock
   twitter: plaimbock
+  gravatar: ffe422d9d0968e45bc80752586dd5daf
   description: |
     Patrick Laimbock is a freelance Consultant focused on Open
     Infrastructure, Cloud Computing and Unified Communications. Follow him
@@ -227,6 +258,7 @@ plaimbock:
 pmasson:
   name: Patrick Masson
   twitter: massonpj
+  gravatar: 77b576c7fcb2b9cf4b4930c130403a4c
   description: |
     Patrick Masson is the General Manager of the Open Source Initiative.
     Prior to the OSI, Patrick worked in a variety of roles within higher
@@ -240,6 +272,7 @@ pmasson:
 pmcgarry:
   name: Patrick McGarry
   twitter: scuttlemonkey
+  gravatar: a5a23ea399d84459d105404655011d1c
   description: |
     Patrick McGarry is currently incarnated as Director of Ceph Community at
     Red Hat, working to spread the Ceph gospel. An experienced community
@@ -254,6 +287,7 @@ pmcgarry:
 quaid:
   name: Karsten Wade
   twitter: quaid
+  gravatar: 1c8c22d24f693b4395bca971df2aa4bd
   description: |
     Karsten (quaid) Wade is a long-time Red Hat community gardener and
     member of the Open Source and Standards team working mainly on the
@@ -265,6 +299,7 @@ quaid:
 rbowen:
   name: Rich Bowen
   twitter: rbowen
+  gravatar: 9c016e252f15d5ab424dd78e987cf517
   description: |
     Rich Bowen has been doing open source for almost 20 years. Rich is a
     member of the Apache Software Foundation, where he is involved in the
@@ -276,6 +311,7 @@ rbowen:
 rendsley:
   name: Rikki Endsley
   twitter: rikkiends
+  gravatar: fbd6ebceb063525d841e5294719d6ef1
   description: |
     Rikki Endsley works at Red Hat on the Open Source and Standards team.
     Follow her on Twitter at: @rikkiends.
@@ -283,19 +319,23 @@ rendsley:
 rranjan:
   name: Rajesh Ranjan
   twitter: kajha
+  gravatar: 4ed0e865e33bbd154bad988b5432f7db
   description: |
     Rajesh Ranjan is Open Source Community Manager at NeGD, Ministry of Information and Communication Technology, Government of India. Before joining with Govt of India, he worked as a language maintainer for Hindi at Red Hat. He is the founder the FUEL Project and associated with several open source projects. Follow him on Twitter at @kajha.
 
 rsuehle:
   name: Ruth Suehle
+  gravatar: 601eab03b06d6e61307eaaa05b85ebc4
 
 rturk:
   name: Ross Turk
   twitter: rossturk
+  gravatar: 6c9934438d717c45638bb892c7143e50
 
 shaunm:
   name: Shaun McCance
   twitter: shaunm
+  gravatar: 8cdb1af50dc84e3315a1309f54faf133
   description: |
     Shaun McCance is the Community Documentation Liaison in the Open Source
     and Standards team at Red Hat, where he helps various open source projects
@@ -306,12 +346,14 @@ shaunm:
 sellis:
   name: Steven Ellis
   twitter: StevensHat
+  gravatar: 202f9394f48298bdb61ff5b56db76a31
   description: |
     Steven has been with Red Hat since they opened their New Zealand office in May 2011. His involvement in Open Source stretches back over 20 years, including over 15 years using Linux within a variety business environments. Since moving to New Zealand he has provided technical direction and operational guidance for a number of New Zealand companies on the use of Open Source and Linux through roles with Optimation and IBM prior to joining Red Hat. As NZ Platform Solution Architect, his focus areas are Red Hat Enterprise Linux and Virtualisation/Cloud products as well as Storage technologies. Follow him on Twitter at @StevensHat.
 
 tcallaway:
   name: Tom Callaway
   twitter: spotrh
+  gravatar: 67cdf35fb78518d0751f75788307a68c
   description: |
     Worshipped by lemurs throughout the known universe, Red Hat employee
     since 2001, currently working on promoting Open Source in higher
@@ -320,9 +362,11 @@ tcallaway:
 
 tconrey:
   name: Theron Conrey
+  gravatar: 8bc11e8a349a832d171874e98ea4d7fd
 
 thildred:
   name: Tim Hildred
+  gravatar: 0c42bffa0705ab2673c0bbcb844cb4a6
   description: |
     Tim Hildred is an internal communications specialist at Red Hat. He was
     born on the east coast of North America, and now lives on the east coast
@@ -330,10 +374,12 @@ thildred:
 
 valentina:
   name: Valentina Mukhamedzhanova
+  gravatar: c63f3ea20799578f15686e096b6c1f60
   description: |
     Valentina Mukhamedzhanova is a Software Engineer at Red Hat working on yum package manager in RHEL. She is a Linux, Python, and open-source enthusiast. Her contributions include code, translations, podcasts, and screencasts.
 
 whuiren:
   name: Woo Huiren
+  gravatar: 5fd78f50999672326079ea018bc690c9
   description: |
     Woo Huiren is a Fedora Ambassador with a goal of transforming Singapore's proprietary landscape to an open source garden filled with flowers. Currently still studying Information Technology in a local polytechnic. A full-stack PHP and NodeJS developer, Woo Loves freedom and enjoys helping others. Find him on Twitter at @woohuiren.
