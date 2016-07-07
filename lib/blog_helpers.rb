@@ -20,7 +20,7 @@ class BlogHelpers < Middleman::Extension
     end
 
     def author_card nickname
-      return @author_card[nickname] if @author_card
+      return @author_card[nickname] if @author_card && defined? @author_card[nickname]
 
       @author_card ||= {}
 
